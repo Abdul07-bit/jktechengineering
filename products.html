@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Products &amp; Makes | JK Tech Engineering</title>
+<meta name="description" content="JK Tech Engineering works with established manufacturers and brands across firefighting, fire alarm, safety and security systems." />
+<meta name="theme-color" content="#0A1628" />
+<link rel="icon" type="image/png" href="./images/logo/favicon.png" />
+<link rel="apple-touch-icon" href="./images/logo/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="page-transition" id="pageTransition" aria-hidden="true">
+  <div class="page-transition__logo"><img src="./images/logo/logo.png" alt="" /></div>
+</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="logo" aria-label="JK Tech Engineering">
+      <img src="./images/logo/logo.png" alt="" class="logo__mark" />
+      <span class="logo__text">
+        <span class="logo__name">JK TECH</span>
+        <span class="logo__sub">ENGINEERING</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="products.html" class="is-current">Products </a>
+      <a href="clients.html">Clients</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="index.html#contact" class="btn btn--red">Request Enquiry</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mmenu" id="mobileMenu" aria-hidden="true">
+  <div class="mmenu__backdrop" data-close></div>
+  <aside class="mmenu__panel">
+    <div class="mmenu__head">
+      <div class="mmenu__brand">
+        <img src="./images/logo/logo.png" alt="" class="logo__mark" />
+        <span class="logo__text"><span class="logo__name">JK TECH</span><span class="logo__sub">ENGINEERING</span></span>
+      </div>
+      <button class="mmenu__close" data-close aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mmenu__links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products </a>
+      <a href="clients.html">Clients</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="mmenu__foot">
+      <a href="tel:+919342506864" class="btn btn--outline">Call Now</a>
+      <a href="https://wa.me/919788664498" target="_blank" rel="noopener" class="btn btn--outline">WhatsApp</a>
+      <a href="index.html#contact" class="btn btn--red">Send Enquiry</a>
+    </div>
+  </aside>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid-3d"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__particles">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="container">
+    <p class="label-line" data-reveal><span class="label-line__rule"></span>PRODUCTS &amp; MAKES</p>
+    <h1 class="page-hero__title" data-reveal>Established Brands,<br/>Engineering Quality</h1>
+    <p class="page-hero__sub" data-reveal>
+      We work with established manufacturers and brands across firefighting, fire alarm, safety and security systems.
+    </p>
+  </div>
+</section>
+
+<!-- SEARCH + FILTER BAR -->
+<section class="products-toolbar">
+  <div class="container products-toolbar__inner" data-reveal>
+    <div class="products-search">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="productSearch" placeholder="Search product or make (e.g. Kirloskar, Honeywell, sprinkler)…" aria-label="Search products" />
+    </div>
+    <div class="products-tabs" role="tablist" aria-label="Product categories">
+      <button class="pill is-active" data-cat="all" role="tab" aria-selected="true">All</button>
+      <button class="pill" data-cat="firefighting" role="tab" aria-selected="false">Firefighting</button>
+      <button class="pill" data-cat="extinguisher" role="tab" aria-selected="false">Extinguishers</button>
+      <button class="pill" data-cat="clean-agent" role="tab" aria-selected="false">Clean Agent</button>
+      <button class="pill" data-cat="fire-alarm" role="tab" aria-selected="false">Fire Alarm</button>
+      <button class="pill" data-cat="pa" role="tab" aria-selected="false">PA / Voice</button>
+      <button class="pill" data-cat="security" role="tab" aria-selected="false">Security</button>
+    </div>
+    <p class="products-count" id="productsCount">Showing all products</p>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products-page">
+  <div class="container">
+    <div class="product-grid" id="productGrid"></div>
+    <p class="product-empty" id="productEmpty" hidden>No products match your search. Try a different keyword or category.</p>
+  </div>
+</section>
+
+<!-- BRAND WALL -->
+<section class="brand-wall-section">
+  <div class="container">
+    <header class="brand-wall__head">
+      <p class="label-line" data-reveal><span class="label-line__rule"></span>MANUFACTURER WALL</p>
+      <h2 class="heading-xl" data-reveal>Brands We Work With</h2>
+      <p class="brand-wall__sub" data-reveal>Hover any brand to reveal its original colour.</p>
+    </header>
+
+    <div class="brand-wall" id="brandWall">
+      <!-- Auto-populated by JavaScript from BRAND_LOGOS array in script.js -->
+    </div>
+  </div>
+</section>
+
+<!-- SEE OUR INSTALLATIONS CTA -->
+<section class="mini-cta">
+  <div class="container mini-cta__inner">
+    <div data-reveal>
+      <p class="label-line"><span class="label-line__rule"></span>SEE OUR INSTALLATIONS</p>
+      <h2 class="heading-lg mini-cta__title">Explore Completed Projects</h2>
+      <p class="mini-cta__sub">Browse photographs from our life safety, firefighting and security system installations across Tamil Nadu.</p>
+    </div>
+    <a href="projects.html" class="btn btn--red btn--lg btn--3d" data-reveal data-page-link>
+      <span class="btn__shine"></span>
+      <span class="btn__label">View Projects</span>
+      <svg viewBox="0 0 20 20" width="14" height="14" class="btn__arrow"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- MAIN CTA -->
+<section class="cta">
+  <div class="cta__bg" aria-hidden="true"><div class="cta__rays"></div></div>
+  <div class="container cta__inner">
+    <h2 class="cta__title" data-reveal>NEED A FIRE PROTECTION<br/>OR SECURITY SOLUTION?</h2>
+    <p class="cta__sub" data-reveal>Discuss your requirements with JK Tech Engineering.</p>
+    <div class="cta__actions" data-reveal>
+      <a href="index.html#contact" class="btn btn--white btn--lg btn--3d"><span class="btn__shine"></span><span class="btn__label">Request a Consultation</span></a>
+      <a href="index.html#contact" class="btn btn--white-outline btn--lg btn--3d"><span class="btn__shine"></span><span class="btn__label">Contact JK Tech Engineering</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <div class="footer__brand-row">
+        <img src="./images/logo/logo.png" alt="" class="footer__logo-mark" />
+        <div class="footer__brand-text">
+          <span class="footer__brand-name">JK TECH</span>
+          <span class="footer__brand-sub">ENGINEERING</span>
+        </div>
+      </div>
+      <p class="footer__tag">Advanced Life Safety &amp; Security Systems. Engineering reliable protection across Tamil Nadu and India.</p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__col-title">NAVIGATION</p>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products &amp; Makes</a>
+      <a href="clients.html">Valuable Clients</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__col-title">SYSTEMS</p>
+      <a href="index.html#systems">Fire Alarm</a>
+      <a href="index.html#systems">Fire Fighting</a>
+      <a href="index.html#systems">CCTV</a>
+      <a href="index.html#systems">Access Control</a>
+      <a href="index.html#systems">Intrusion Detection</a>
+      <a href="index.html#systems">PA / Voice Evacuation</a>
+      <a href="services.html">AMC</a>
+      <a href="services.html">O&amp;M</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__col-title">CONTACT</p>
+      <a href="tel:+914354060489">04354060489</a>
+      <a href="tel:+919342506864">9342506864</a>
+      <a href="https://wa.me/919788664498" target="_blank" rel="noopener">9788664498 (WhatsApp)</a>
+      <a href="mailto:jktechengineering25@gmail.com">jktechengineering25@gmail.com</a>
+      <p class="footer__addr">
+        No.01, 1st Floor, Sidhi Vinayagar Nagar,<br/>
+        Asoor Bypass, Thanjavur Service Road,<br/>
+        Kumbakonam — 612001,<br/>
+        Tamil Nadu, India
+      </p>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year">2025</span> JK Tech Engineering. All Rights Reserved.</p>
+    <p>Advanced Life Safety &amp; Security Systems</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
