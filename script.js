@@ -1,4 +1,29 @@
-/* ═══════════════════════════════════════════════════════════════
+const SUPABASE_URL = 'wmigbeteqnkowwaewpuv';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtaWdiZXRlcW5rb3d3YWV3cHV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMjUxOTIsImV4cCI6MjEwNTgwMTE5Mn0.oPQhPzyD4hmRKi56GEM0dOMR2DQNxb_v3IrdFhNbhDY';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const contactForm = document.querySelector('#contact-form'); // Check your HTML for the correct ID!
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.querySelector('#name').value;
+        const email = document.querySelector('#email').value;
+        const message = document.querySelector('#message').value;
+        
+        const { data, error } = await supabaseClient
+            .from('contact_messages')
+            .insert([{ name: name, email: email, message: message }]);
+
+        if (error) {
+            alert('Error sending message.');
+            console.error(error);
+        } else {
+            alert('Thank you! Your message has been sent.');
+            contactForm.reset();
+        }
+    });
+}/* ═══════════════════════════════════════════════════════════════
    JK TECH ENGINEERING — MASTER SITE SCRIPT
    ═══════════════════════════════════════════════════════════════ */
 'use strict';
