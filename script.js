@@ -1,16 +1,20 @@
-const SUPABASE_URL = 'wmigbeteqnkowwaewpuv';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtaWdiZXRlcW5rb3d3YWV3cHV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMjUxOTIsImV4cCI6MjEwNTgwMTE5Mn0.oPQhPzyD4hmRKi56GEM0dOMR2DQNxb_v3IrdFhNbhDY';
+const SUPABASE_URL = 'https://wmigbeteqnlkowwaevpw.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_b8Xmi2E0_N_MQ5gtz0zWIA_UHQb2OJh';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const contactForm = document.querySelector('#contact-form'); // Check your HTML for the correct ID!
+const contactForm = document.querySelector('#enquiryForm'); // Matches your HTML ID
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = document.querySelector('#name').value;
-        const email = document.querySelector('#email').value;
-        const message = document.querySelector('#message').value;
-        
+        e.preventDefault(); // Stops the Formspree action from running
+
+        // Get the values using your actual HTML IDs
+        const name = document.querySelector('#f-name').value;
+        const email = document.querySelector('#f-email').value;
+        const message = document.querySelector('#f-message').value;
+
+        // Insert into Supabase
         const { data, error } = await supabaseClient
             .from('contact_messages')
             .insert([{ name: name, email: email, message: message }]);
@@ -23,7 +27,8 @@ if (contactForm) {
             contactForm.reset();
         }
     });
-}/* ═══════════════════════════════════════════════════════════════
+}
+/* ═══════════════════════════════════════════════════════════════
    JK TECH ENGINEERING — MASTER SITE SCRIPT
    ═══════════════════════════════════════════════════════════════ */
 'use strict';
